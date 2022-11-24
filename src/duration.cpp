@@ -22,19 +22,25 @@ duration::duration(int t)
 bool duration::tick()
 {
     time++;
-    if(time >= alarm)
-    {
-        alarmhasbeenset = false;
-        alarm = 0;
-        return true;
-    }
-    return false;
+    return checkAndUpdateAlarm();
 }
 
 bool duration::tick(int dt)
 {
     assert(dt > 0);
     time += dt;
+    return checkAndUpdateAlarm();
+}
+
+void duration::setalarm(int a)
+{
+    assert(a > time);
+    alarm = a;
+    alarmhasbeenset = true;
+}
+
+bool duration::checkAndUpdateAlarm()
+{
     if(time >= alarm)
     {
         alarmhasbeenset = false;
@@ -42,10 +48,4 @@ bool duration::tick(int dt)
         return true;
     }
     return false;
-}
-
-void duration::setalarm(int a)
-{
-    alarm = a;
-    alarmhasbeenset = true;
 }

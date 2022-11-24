@@ -7,6 +7,7 @@ class duration
     int time;
     int alarm;
     bool alarmhasbeenset;
+    bool checkAndUpdateAlarm();
 
 public:
     duration();
