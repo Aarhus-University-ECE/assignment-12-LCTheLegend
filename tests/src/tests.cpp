@@ -21,5 +21,4 @@ TEST_CASE("Duration")
     d.setalarm(30);
     REQUIRE(d.tick() == false);
     REQUIRE(d.tick(3) == true);
-    
 }
