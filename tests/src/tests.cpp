@@ -16,5 +16,10 @@ TEST_CASE("Duration")
     REQUIRE(d.getduration() == 21);
     d.tick();
     REQUIRE(d.getduration() == 22);
+    d.tick(5);
+    REQUIRE(d.getduration() == 27);
+    d.setalarm(30);
+    REQUIRE(d.tick() == false);
+    REQUIRE(d.tick(3) == true);
     
 }

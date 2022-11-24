@@ -5,13 +5,17 @@ class duration
 {
  private:
     int time;
+    int alarm;
+    bool alarmhasbeenset;
 
 public:
     duration();
     ~duration();
     int getduration();
     duration(int t);
-    void tick();
+    bool tick();
+    bool tick(int dt);
+    void setalarm(int a);
 
 };
 
