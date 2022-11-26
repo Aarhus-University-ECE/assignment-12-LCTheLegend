@@ -11,7 +11,7 @@ class duration
 
 public:
     duration();
-    ~duration();
+    //~duration();
     int getduration();
     duration(int t);
     bool tick();
